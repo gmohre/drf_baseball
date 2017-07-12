@@ -1,0 +1,6 @@
+django
+boto3
+zappa
+djangorestframework
+django_extensions
+django-storages

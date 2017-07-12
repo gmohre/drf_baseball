@@ -1,0 +1,17 @@
+{
+    "dev": {
+        "aws_region": "us-east-2", 
+        "django_settings": "drf_apis.settings", 
+        "profile_name": "default", 
+        "s3_bucket": "zappa-baseball"
+	"vpc_config": {
+	    "SubnetIds": [
+		"subnet-26c11d6b",
+                "subnet-80cf47fb",
+		"subnet-a1fd21ec",
+		"subnet-55fc2018"
+	    ],
+	    "SecurityGroupIds": ["sg-b2baa9db"]
+	}
+    }
+}
