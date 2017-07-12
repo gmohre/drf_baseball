@@ -39,12 +39,9 @@ def _write_func(sender, instance, created, **kwargs):
     if instance.numpy_source and instance.numpydatastructure_set.exists() and created:
         func_dict = {}
         ds_out = [func_dict.update({dat.key:dat.csv.file}) for dat in instance.numpydatastructure_set.all()]
-        try:
-            open('{}.py'.format(instance.numpy_func_fn),'w').write(instance.numpy_source)
-        except:
-            print('bust')
+        fp = open('{}.py'.format(instance.numpy_func_fn),'w')
+        fp.write(instance.numpy_source)
+        fp.close()
         np_func = __import__(instance.numpy_func_fn)
         instance.json = json.loads(np_func.main(**func_dict))
         instance.save()
-
-
