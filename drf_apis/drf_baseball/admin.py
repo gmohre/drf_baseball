@@ -13,4 +13,3 @@ class NumpyFunctionAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(NumpyFunction, NumpyFunctionAdmin)
-#admin.site.register(NumpyDataStructure)
