@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import NumpyFunction, NumpyDataStructure
 
 class NumpyDataStructureSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = NumpyDataStructure
         fields = ('__all__')
