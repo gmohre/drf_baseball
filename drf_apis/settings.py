@@ -141,10 +141,13 @@ USE_TZ = True
 # Settings for storages / boto
 AWS_STORAGE_BUCKET_NAME = 'zappa-baseball-static'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-#STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
-#MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
+AWS_QUERYSTRING_AUTH = False
+AWS_HEADERS = {'Cache-Control': 'max-age=86400', }
+
+#STATIC_URL = '/static/'
+#MEDIA_URL = '/media/'
+STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
+MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
 
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -154,9 +157,9 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 S3DIRECT_REGION = 'us-east-2'
 
 STATICFILES_LOCATION = '/static'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 MEDIAFILES_LOCATION = '/media'
-#DEFAULT_FILE_STORAGE = 'drf_apis.custom_storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'drf_apis.custom_storages.MediaStorage'
 
