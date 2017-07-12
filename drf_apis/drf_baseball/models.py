@@ -50,5 +50,3 @@ def _write_func(sender, instance, created, **kwargs):
         np_func = __import__(instance.numpy_func_fn)
         returned_json_data = json.loads(np_func.main(**func_dict))
         sender.objects.filter(id=instance.id).update(json=returned_json_data)
-    else:
-        print('step')
