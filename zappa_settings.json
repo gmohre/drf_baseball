@@ -5,5 +5,4 @@
         "profile_name": "default", 
         "s3_bucket": "zappa-baseball"
 	}
-    }
 }

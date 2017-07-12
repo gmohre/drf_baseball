@@ -1,4 +1,5 @@
 django
+boto
 boto3
 zappa
 djangorestframework
