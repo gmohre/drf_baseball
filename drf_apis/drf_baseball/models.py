@@ -23,6 +23,9 @@ class NumpyFunction(models.Model):
 
     @property
     def numpy_func_fn(self):
+        """
+        Strip space from title for filename to output function to
+        """
         return ''.join(self.title.split())
 
 
