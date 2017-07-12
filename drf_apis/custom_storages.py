@@ -14,4 +14,4 @@ class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 
     def url(self, name, headers=None, response_headers=None, expire=None):
-        return '{}{}''.format(settings.MEDIA_URL, filepath_to_uri(name))
+        return '{}{}'.format(settings.MEDIA_URL, filepath_to_uri(name))
