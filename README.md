@@ -7,7 +7,7 @@
 
 Returns a dictionary containing the title, source code and JSON output
 
-### drf_baseball
+### drf_apis/drf_baseball
 
 `admin.py`
 * NumpyFunctionAdmin
