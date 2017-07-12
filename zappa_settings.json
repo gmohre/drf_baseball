@@ -1,8 +1,0 @@
-{
-    "dev": {
-        "aws_region": "us-east-2", 
-        "django_settings": "drf_apis.settings", 
-        "profile_name": "default", 
-        "s3_bucket": "zappa-baseball"
-	}
-}
