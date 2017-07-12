@@ -5,7 +5,7 @@
 ### Numpy Function Endpoint
 `/numpy/`
 
-Returns a dictionary containing the title, source code and JSON output
+Returns a dictionary containing the title, source code, JSON output, and serialized NumpyDataStructures
 
 ### drf_apis/drf_baseball
 
