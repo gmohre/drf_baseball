@@ -26,7 +26,7 @@ SECRET_KEY = '%ixj6r*@dd^&e&1#e!+5@-^11qi1wsyk0i-db18-%rnmo+w%r#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'fnii96lzya.execute-api.us-east-2.amazonaws.com','fnii96lzya.execute-api.us-east-2.amazonaws.com', '127.0.0.1', 'drfbaseball.ca40m5uvqobb.us-east-1.rds.amazonaws.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'x589yc7zcd.execute-api.us-east-2.amazonaws.com']
 
 
 # Application definition
@@ -91,22 +91,13 @@ from shutil import copyfile
 src = os.path.join(BASE_DIR, 'db.sqlite3')
 dst = "/tmp/db.sqlite3"
 copyfile(src, dst)
-
+#
 DATABASES = {
     'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
                 'NAME': dst
                 }
 
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'drf_baseball',
-#        'USER': 'root',
-#        'PASSWORD' : 'departed',
-#        'HOST' : 'drfbaseball.cbi5ajkhmnug.us-east-2.rds.amazonaws.com',
-##        'HOST': 'localhost',
-#        'PORT' : '3306'
-#    }
 }
 
 
@@ -146,17 +137,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 AWS_STORAGE_BUCKET_NAME = 'zappa-baseball-static'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
-
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
+MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
 
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
+S3DIRECT_REGION = 'us-east-2'
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'drf_apis.custom_storages.MediaStorage'
 
