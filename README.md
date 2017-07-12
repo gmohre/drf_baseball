@@ -18,7 +18,7 @@ Returns a dictionary containing the title, source code and JSON output
 * NumpyDataStructure
 
 `views.py`
-* NumpyFunctionViewset
+* NumpyFunctionViewSet
 
 `serializers`
 * NumpyFunctionSerializer
