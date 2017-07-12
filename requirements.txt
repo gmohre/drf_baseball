@@ -2,6 +2,10 @@ django
 boto
 boto3
 zappa
+pandas
+matplotlib
+scipy
+statsmodels
 djangorestframework
 django_extensions
 django_storages
