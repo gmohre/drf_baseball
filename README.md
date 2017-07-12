@@ -9,18 +9,18 @@ Returns a dictionary containing the title, source code and JSON output
 
 ### drf_baseball
 
-`admin.py
+`admin.py`
 * NumpyFunctionAdmin
 * NumpyDataStructureInline
 
-`models.py
+`models.py`
 * NumpyFunction
 * NumpyDataStructure
 
-`views.py
+`views.py`
 * NumpyFunctionViewset
 
-`serializers
+`serializers`
 * NumpyFunctionSerializer
 * NumpyDataStructureSerializer
 
