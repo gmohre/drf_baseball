@@ -30,7 +30,7 @@ class NumpyFunction(models.Model):
 
 
 class NumpyDataStructure(models.Model):
-    numpy_function = models.ForeignKey(NumpyFunction, on_delete=models.CASCADE)
+    numpy_function = models.ForeignKey(NumpyFunction, on_delete=models.CASCADE, related_name='data')
     csv = models.FileField(upload_to='csvs/')
     key = models.CharField(max_length=2*7)
 
