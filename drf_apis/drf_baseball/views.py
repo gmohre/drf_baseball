@@ -10,6 +10,5 @@ from .serializers import NumpyFunctionSerializer
 from django.shortcuts import render
 
 class NumpyFunctionViewSet(viewsets.ModelViewSet):
-
     queryset = NumpyFunction.objects.all()
     serializer_class = NumpyFunctionSerializer
