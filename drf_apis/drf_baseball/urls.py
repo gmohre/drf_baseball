@@ -6,4 +6,3 @@ from rest_framework.urlpatterns import format_suffix_patterns
 router = DefaultRouter()
 router.register(r'^numpy', NumpyFunctionViewSet)
 urlpatterns = router.urls
-
