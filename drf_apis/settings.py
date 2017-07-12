@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'storages',
+    'boto',
     'boto3',
     'zappa',
     'drf_apis.drf_baseball'
@@ -86,6 +87,7 @@ WSGI_APPLICATION = 'drf_apis.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# Hack to get sqlitedb served via lambda
 from shutil import copyfile
 src = os.path.join(BASE_DIR, 'db.sqlite3')
 dst = "/tmp/db.sqlite3"
@@ -136,14 +138,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
+# Settings for storages / boto
 AWS_STORAGE_BUCKET_NAME = 'zappa-baseball-static'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 STATIC_URL = "https://%s/static/" % AWS_S3_CUSTOM_DOMAIN
 MEDIA_URL = "https://%s/media/" % AWS_S3_CUSTOM_DOMAIN
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
